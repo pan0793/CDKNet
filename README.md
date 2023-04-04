@@ -7,7 +7,7 @@ Stereo matching has been studied for years, there are many effective methods[5, 
 
 <!-- ![image](https://github.com/pan0793/TSNnet/blob/main/img/workflow.png) -->
 <!-- <center> -->
-<img src="https://github.com/pan0793/TSNnet/blob/main/img/workflow.png" width="300px" >
+<img src="https://github.com/pan0793/TSNnet/blob/main/img/workflow.png" width="500px" >
 <!-- <\center> -->
 
 ## Results
