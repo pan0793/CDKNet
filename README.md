@@ -18,6 +18,11 @@ Stereo matching has been studied for years, there are many effective methods[5, 
 | TSNnet_Student | 2.35 %|6.70 %|3.07 %| 24 |
 | TSNnet_Naive |2.64 %|6.47 %|3.28 %| 17 |
 
+# Some examples of our results
+![image](https://github.com/pan0793/TSNnet/tree/main/img/comparison.png)
+
+<!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/imgL6.png) -->
+<!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/col6.png) -->
 
 
 
@@ -66,8 +71,3 @@ python eval.py
 ```
 
 
-# Some results of our methods
-![image](https://github.com/pan0793/TSNnet/tree/main/img/comparison.png)
-
-<!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/imgL6.png) -->
-<!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/col6.png) -->
