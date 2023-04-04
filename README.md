@@ -16,6 +16,13 @@ only 17ms for a single-time inference.
 
 # How to use
 
-## Environment
-* Python>=3.8
+## Requirements
+* Python>=3.9
 * Pytorch>=1.10
+
+## Enviroment
+conda create -n TSNnet python=3.9
+conda activate TSNnet
+conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvidia
+pip install opencv-python
+pip install albumentations
