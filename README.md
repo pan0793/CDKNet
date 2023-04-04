@@ -30,3 +30,29 @@ pip install albumentations
 ```
 ## Prepare the Data
 Download [Scene Flow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
+
+## Train
+Use the following command to train ACVNet on Scene Flow
+
+Firstly, train attention weights generation network for 64 epochs,
+```
+python main.py --attention_weights_only True
+```
+Secondly, freeze attention weights generation network parameters, train the remaining network for another 64 epochs,
+```
+python main.py --freeze_attention_weights True
+```
+Finally, train the complete network for 64 epochs,
+```
+python main.py
+```
+
+Use the following command to train ACVNet on KITTI (using pretrained model on Scene Flow)
+```
+python main_kitti.py
+```
+
+## Test
+```
+python test_sceneflow.py
+```
