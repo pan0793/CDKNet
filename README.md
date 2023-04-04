@@ -17,7 +17,6 @@ only 17ms for a single-time inference.
 # How to use
 
 ## Requirements
-
 * Python>=3.9
 * Pytorch>=1.10
 
@@ -29,3 +28,5 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvid
 pip install opencv-python
 pip install albumentations
 ```
+## Prepare the Data
+Download [Scene Flow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
