@@ -19,7 +19,7 @@ Stereo matching has been studied for years, there are many effective methods[5, 
 | [TSNnet_Naive](https://www.cvlibs.net/datasets/kitti/eval_scene_flow_detail.php?benchmark=stereo&result=77e2ffe05f35444bc1d61761468c49529f5fe99f) |2.64 %|6.47 %|3.28 %| 17 |
 
 ### Examples of our results
-![image](https://github.com/pan0793/TSNnet/tree/main/img/comparison.png)
+![image](https://github.com/pan0793/TSNnet/blob/main/img/comparison.png)
 
 <!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/imgL6.png) -->
 <!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/col6.png) -->
