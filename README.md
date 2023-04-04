@@ -21,7 +21,7 @@ only 17ms for a single-time inference.
 * Python>=3.9
 * Pytorch>=1.10
 
-## Enviroment
+## Prepare the Enviroment 
 ```
 conda create -n TSNnet python=3.9
 conda activate TSNnet
