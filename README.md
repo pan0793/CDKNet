@@ -12,4 +12,4 @@ Our method has archived 0.67px on Sceneflow(EPE), 0.7px on KITTI2012(EPE), and 2
 only 17ms for a single-time inference.
 
 
-![image](https://github.com/pan0793/TSNnet/img/workflow.png)
+![image](https://github.com/pan0793/TSNnet/blob/main/img/workflow.png)
