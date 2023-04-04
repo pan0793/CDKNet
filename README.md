@@ -1,7 +1,7 @@
 # TSNnet
 This is the implementation of the paper: "Teacher, Student, and the Naive : A Cascade Knowledge Distillation Training", ICCV2023.
-##
 
+## Introduction
 Stereo matching has been studied for years, there are many effective methods[5, 7, 14, 47] with high computational complexity/memory occupation. On the other hand, there are only a few studies[2, 4, 38, 45] focused on stereo matching with limited computing resources. In this paper, we aim to bridge the performance gap
 between theoretical approaches and practical applications by proposing an efficient cascaded knowledge distilla-
 tion scheme for training lightweight networks (TSNnet). Three lightweight networks with different sizes(FLOPs, Pa
@@ -13,3 +13,9 @@ only 17ms for a single-time inference.
 
 
 ![image](https://github.com/pan0793/TSNnet/blob/main/img/workflow.png)
+
+# How to use
+
+## Environment
+* Python 3.8
+* Pytorch 1.10
