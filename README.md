@@ -29,14 +29,14 @@ pip install opencv-python
 pip install albumentations
 ```
 ## Prepare the Data
-Download [Scene Flow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
+Download [Sceneflow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 ## Train
-Use the following command to train TSN-Teacher on Scene Flow
+Use the following command to train the TSNet on Sceneflow
 
-Firstly, train attention weights generation network for 64 epochs,
+Firstly, train TSN-Teacher network on Sceneflow solely,
 ```
-python main.py --attention_weights_only True
+python train.py
 ```
 Secondly, freeze attention weights generation network parameters, train the remaining network for another 64 epochs,
 ```

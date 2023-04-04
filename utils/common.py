@@ -52,6 +52,7 @@ def init_cfg(cfg):
     cfg.loadmodel = None
     cfg.teacher_loadmodel = None
     cfg.student_loadmodel = None
+    cfg.KDlossOnly=False
     return cfg
 
 def get_cfg(cfg):

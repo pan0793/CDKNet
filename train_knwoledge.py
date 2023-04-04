@@ -58,22 +58,15 @@ def main_worker(gpu, cfg):
     # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
     #     optimizer, patience=5, verbose=True, threshold=3e-3, factor=0.5)
     TrainImgLoader_disp, TestImgLoader_disp = DATASET_disp(cfg)
-    print(len(TrainImgLoader_disp))
-    print(len(TestImgLoader_disp))
-    small_test_loss = 100
+
     for epoch in range(cfg.start_epoch, cfg.max_epoch+1):
         adjust_learning_rate(cfg =cfg, optimizer=optimizer, epoch=epoch)
         TrainImgLoader_disp.sampler.set_epoch(epoch)
-        # epoch_loss = []
         start_time = datetime.now()
-        # if 0:
         for batch_idx, data_batch in enumerate(TrainImgLoader_disp):
-            
             # ! step 1: train disp
-            # model.model.train()
             loss, loss_disp, loss_head, loss_kd = train(model, data_batch, gpu, optimizer)
             # ! end 
-            # epoch_loss.append(float(loss))
             if main_process(gpu) and (batch_idx % (len(TrainImgLoader_disp)//1) == 0) and not eval_epoch(epoch,cfg):
                 message = 'Epoch: {}/{}. Iteration: {}/{}. LR:{:.1e},  Epoch time: {}. Disp loss: {:.3f}. Head loss: {:.3f}. KD loss: {:.3f}. Total loss: {:.3f}. '.format(
                     epoch, cfg.max_epoch, batch_idx, len(TrainImgLoader_disp),                    
@@ -111,7 +104,6 @@ def main_worker(gpu, cfg):
                     loss_all[0], loss_all[1]*100)
                 print(message)
                 writer.add_text('full test/record', message, epoch)
-                # small_test_loss = loss_all
                 save_model_dict(epoch, model.state_dict(),
                                 optimizer.state_dict(), loss_all[0], cfg)
 
@@ -119,34 +111,23 @@ if __name__ == '__main__':
     import argparse
     from utils.common import init_cfg, get_cfg
     parser = argparse.ArgumentParser(description='PSMNet')
+    parser.add_argument('--finetune', default='None', help="None is for Sceneflow, kitti for kitti")
     cfg = init_cfg(parser.parse_args())
     cfg.max_epoch = 3000
-    # cfg.KDlossOnly=True
-    cfg.KDlossOnly=False
+   
     cfg.use_cuda = '0,1'
-    # cfg.use_cuda = '0'
     cfg.gpu_num = len(cfg.use_cuda.split(','))
     os.environ['CUDA_VISIBLE_DEVICES'] = cfg.use_cuda
     cfg.server_name = 'local'
-    # cfg.want_size = (384, 640)
-    # cfg.want_size = (480, 640)
-    # cfg.loadmodel = None
-    # cfg.finetune = None
-    # cfg.loadmodel = 'zoo/driving_55_0.36760.tar'
-    # cfg.loadmodel = 'zoo/kitti_258_0.38197.tar'
-    # cfg.teacher_loadmodel = 'zoo_test/kitti_278_0.37840.tar'
-    # cfg.teacher_loadmodel = 'zoo_keep/test_100_0.58014.tar'
-    # cfg.teacher_loadmodel = 'zoo_best/test_noheadloss_170_0.51743.tar'
-    # cfg.teacher_loadmodel = 'zoo_student_noheadloss_v2/teacher_student_v11_311_0.83415.tar'
+
     cfg.teacher_loadmodel = 'zoo_best/teacher_student_v11_driving_57_0.62993.tar'
     
     cfg.student_loadmodel = 'zoo_student_naive/student_naive_v11_driving_25_0.68214.tar'
     # cfg.student_loadmodel = 'zoo_student_noheadloss/teacher_student_169_1.36847.tar'
     # cfg.student_loadmodel = "zoo_teacher_student/teacher_student_v11_311_0.83415.tar"
     # cfg.student_loadmodel = "zoo_student/teacher_student_46_1.09732.tar"
-    cfg.finetune = 'driving'
     cfg.save_prefix = "./zoo_student_naive/{}".format("student_naive_v11_driving")
-    # cfg.start_epoch = set_start_epoch(cfg)
+
     cfg = get_cfg(cfg)
     cfg.disp_batch = 26
     if len(cfg.use_cuda)>1:
