@@ -53,5 +53,7 @@ python eval.py
 
 
 # Some results of our methods
-![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/imgL6.png)
-![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/col6.png)
+![image](https://github.com/pan0793/TSNnet/tree/main/img/comparison.png)
+
+<!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/imgL6.png) -->
+<!-- ![image](https://github.com/pan0793/TSNnet/tree/main/img/qualitative/col6.png) -->
