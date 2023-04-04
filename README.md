@@ -50,3 +50,7 @@ python train_knowledge.py --finetune kitti
 ```
 python eval.py
 ```
+
+
+# Some results of our methods
+
