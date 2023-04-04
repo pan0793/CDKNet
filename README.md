@@ -28,11 +28,11 @@ Stereo matching has been studied for years, there are many effective methods[5, 
 
 # How to use
 
-## Requirements
+### Requirements
 * Python>=3.9
 * Pytorch>=1.10
 
-## Prepare the Enviroment 
+### Prepare the Enviroment 
 ```
 conda create -n TSNnet python=3.9
 conda activate TSNnet
@@ -40,7 +40,7 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvid
 pip install opencv-python
 pip install albumentations
 ```
-## Prepare the Data
+### Prepare the Data
 Download [Sceneflow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 ## Train
