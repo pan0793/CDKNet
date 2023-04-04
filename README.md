@@ -7,6 +7,20 @@ Stereo matching has been studied for years, there are many effective methods[5, 
 
 ![image](https://github.com/pan0793/TSNnet/blob/main/img/workflow.png)
 
+
+# Results
+## Results on KITTI 2015 leaderboard
+[Leaderboard Link](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
+
+| Method | D1-bg (All) | D1-fg (All) | D1-all (All) | Runtime (ms) |
+|:-:|:-:|:-:|:-:|:-:|
+| TSNnet_Teacher |2.24 % | 4.99 % | 2.70 % | 108 |
+| TSNnet_Student | 2.35 %|6.70 %|3.07 %| 24 |
+| TSNnet_Naive |2.64 %|6.47 %|3.28 %| 17 |
+
+
+
+
 # How to use
 
 ## Requirements
@@ -25,9 +39,9 @@ pip install albumentations
 Download [Sceneflow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 ## Train
-Use the following command to train the TSNet on Sceneflow
+Use the following command to train the TSNnet on Sceneflow
 
-First, train TSN-Teacher network on Sceneflow solely,
+First, train TSNnet-Teacher network on Sceneflow solely,
 ```
 python train.py
 ```
@@ -35,7 +49,7 @@ or to Train on kitti
 ```
 python train.py --finetune kitti
 ```
-Secondly, train the TSN-student or TSN-naive with Knowledge Distillation
+Secondly, train the TSNnet-student or TSNnet-naive with Knowledge Distillation
 ```
 python train_knowledge.py
 ```
