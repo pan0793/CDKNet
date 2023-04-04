@@ -47,7 +47,6 @@ def init_cfg(cfg):
     cfg.use_cuda = '0'
     cfg.head_only = False
     cfg.freeze_head = False
-    # cfg.dist_url = "tcp://127.0.0.1:{}".format(8000 % 65535)
     cfg.dist_url = "tcp://127.0.0.1:{}".format(51593 % 65535)
     cfg.finetune = None
     cfg.loadmodel = None

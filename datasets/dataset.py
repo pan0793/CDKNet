@@ -21,20 +21,11 @@ def zero_num(btrain, all):
 
 
 class SceneFlowDataset(Dataset):
-    def __init__(self,  want_size, training=True, server_name='18.16', list_filename=None, cleanpass=False, btrain = 0, mode='val'):
-        self.dict = {
-            '18.16': '/data2',
-            '17.17': '/data/cv/visual_team1/boyu',
-            'guiyang': '/CV_team_data_01/pby_data/Dataset',
-            '18.15': '/data/pby/dataset',
-            '18.18': '/data3/pby/dataset',
-            'local': '/data2/dataset',
-            'LARGE':'/data/datasets',
-        }
+    def __init__(self,  want_size, training=True, server_name='18.16', list_filename=None, cleanpass=False, btrain=0, mode='val', datapath="/data/datasets"):
         self.btrain = btrain
         self.cleanpass = cleanpass
         self.server_name = server_name
-        self.datapath = self.dict[server_name]
+        self.datapath = datapath
         self.left_filenames, self.right_filenames, self.disp_filenames = self.load_path(list_filename)
         self.training = training
         self.want_size = want_size
@@ -93,24 +84,6 @@ class SceneFlowDataset(Dataset):
         return len(self.left_filenames)
 
     def __getitem__(self, index):
-        # if (self.left_filenames[index] == "NONE"):
-        #     if self.training:
-        #         size = (self.want_size[0], self.want_size[1])
-        #     else:
-        #         size = (540, 960)
-        #     left_img = Image.new(mode="RGB", size=(
-        #         size[1], size[0]), color=(0, 0, 0))
-        #     right_img = Image.new(mode="RGB", size=(
-        #         size[1], size[0]), color=(0, 0, 0))
-        #     processed = get_transform()
-        #     left_img = processed(left_img)
-        #     right_img = processed(right_img)
-        #     disparity = -np.ones(size, dtype=np.float32)
-        #     if self.training:
-        #         return [left_img.unsqueeze(0), right_img.unsqueeze(0), ToTensorV2()(image=disparity)['image'].unsqueeze(0)]
-        #     else:
-        #         return [left_img.unsqueeze(0), right_img.unsqueeze(0), ToTensorV2()(image=disparity)['image']]
-
         left_img = self.load_image(self.left_filenames[index])
         right_img = self.load_image(self.right_filenames[index])
         disparity = self.load_disp(self.disp_filenames[index])
@@ -145,7 +118,7 @@ class SceneFlowDataset(Dataset):
 
 
 class KITTIDataset(Dataset):
-    def __init__(self,  want_size, training, datapath=None, server_name='18.16', mode='val'):
+    def __init__(self,  want_size, training, datapath="/data/datasets", server_name='18.16', mode='val'):
         if training is True:
             # list_filename = './filenames/kitti15_train.txt'
             list_filename = './filenames/kitti15_all.txt'
@@ -155,16 +128,7 @@ class KITTIDataset(Dataset):
         elif mode == 'test':
             list_filename = './filenames/kitti15_test.txt'
         # self.list_filename='/home/boyu.pan/work/code/mobilestereonet/filenames/kitti15_train.txt'
-        self.dict = {
-            '18.16': '/data2/kitti/data_scene_flow',
-            '17.17': '/data/cv/baiyu.pan/kitti/data_scene_flow',
-            'guiyang': '/CV_team_data_01/pby_data/Dataset',
-            '18.15': '/data/pby/dataset/kitti/data_scene_flow',
-            'local': '/data2/dataset/kitti/data_scene_flow',
-            '18.18':'/data3/pby/dataset/kitti/data_scene_flow',
-        }
-        self.datapath = self.dict[server_name]
-        
+        self.datapath = datapath
         self.left_filenames, self.right_filenames, self.disp_filenames = self.load_path(
             list_filename)
         self.training = training

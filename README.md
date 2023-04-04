@@ -32,7 +32,7 @@ pip install albumentations
 Download [Scene Flow Datasets](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html), [KITTI 2012](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo), [KITTI 2015](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
 
 ## Train
-Use the following command to train ACVNet on Scene Flow
+Use the following command to train TSN-Teacher on Scene Flow
 
 Firstly, train attention weights generation network for 64 epochs,
 ```

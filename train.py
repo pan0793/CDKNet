@@ -99,39 +99,18 @@ if __name__ == '__main__':
     import argparse
     from utils.common import init_cfg, get_cfg
     parser = argparse.ArgumentParser(description='PSMNet')
+    parser.add_argument('--model', default='teacher')
+    parser.add_argument('--loadmodel', default='zoo/yourmodel.tar')
     cfg = init_cfg(parser.parse_args())
         
     cfg.server_name = 'local'
-    
     cfg.use_cuda = '0,1'
     os.environ['CUDA_VISIBLE_DEVICES'] = cfg.use_cuda
     cfg.pad_size= (512, 256)
-    
     cfg.loadmodel = None
-    
-    # cfg.num_class_ratio = 1
-    
     cfg.finetune = 'kitti'
-    # cfg.finetune = 'driving'
-    # cfg.loadmodel = 'zoo_test/noloss_oneweight_36_1.06942.tar'
-    # cfg.loadmodel = '/home/pan/Works/code/multitask/zoo/test_7.tar'
-    # cfg.loadmodel = '/home/pan/Works/code/multitask/zoo/test_7.tar'
-    # cfg.loadmodel = 'zoo/test_71_0.61438.tar'
-    # cfg.finetune = None
-    # cfg.loadmodel = 'zoo_sceneflow_all/test_noheadloss_203_0.72398.tar'
-    # cfg.loadmodel = 'zoo_best_epe/student_only_169_0.8778.tar'
-    # cfg.loadmodel = 'zoo_student_only/student_only_driving_57_0.65276.tar'
-    # cfg.loadmodel = 'zoo/volume_new_50_0.69759.tar'
-    # cfg.loadmodel="zoo/volume_new_43_0.37695.tar"
-    cfg.loadmodel = 'zoo_student_only/student_only_kitti12_2653_0.39027.tar'
-    # cfg.start_epoch = 0 if cfg.loadmodel is None else int(
-    #     cfg.loadmodel.split('_')[1][:-4])+1
-    # cfg.save_prefix = "./zoo/{}".format("volume_new_kitti")
-    # cfg.save_prefix = "./zoo/{}".format("volume_new")
-    # cfg.save_prefix = "./zoo_student_only/{}".format("student_only_kitti")
     cfg.save_prefix = "./zoo_student_only/{}".format("student_only_kitti12")
 
-    
     cfg = get_cfg(cfg)
     cfg.disp_batch = 15
     if len(cfg.use_cuda)>1:
