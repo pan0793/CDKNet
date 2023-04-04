@@ -17,5 +17,5 @@ only 17ms for a single-time inference.
 # How to use
 
 ## Environment
-* Python 3.8
-* Pytorch 1.10
+* Python>=3.8
+* Pytorch>=1.10
