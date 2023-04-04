@@ -22,9 +22,10 @@ only 17ms for a single-time inference.
 * Pytorch>=1.10
 
 ## Enviroment
-
+```
 conda create -n TSNnet python=3.9
 conda activate TSNnet
 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvidia
 pip install opencv-python
 pip install albumentations
+```
