@@ -34,25 +34,26 @@ Download [Sceneflow Datasets](https://lmb.informatik.uni-freiburg.de/resources/d
 ## Train
 Use the following command to train the TSNet on Sceneflow
 
-Firstly, train TSN-Teacher network on Sceneflow solely,
+First, train TSN-Teacher network on Sceneflow solely,
 ```
 python train.py
 ```
-Secondly, freeze attention weights generation network parameters, train the remaining network for another 64 epochs,
+or to Train on kitti
 ```
-python main.py --freeze_attention_weights True
+python train.py --finetune kitti
 ```
-Finally, train the complete network for 64 epochs,
+Secondly, train the TSN-student or TSN-naive with Knowledge Distillation
 ```
-python main.py
+python train_knowledge.py
 ```
+or to Knowledge Distillation on kitti:
 
-Use the following command to train ACVNet on KITTI (using pretrained model on Scene Flow)
 ```
-python main_kitti.py
+python train_knowledge.py --finetune kitti
 ```
 
 ## Test
+
 ```
-python test_sceneflow.py
+python eval.py
 ```

@@ -84,6 +84,7 @@ if __name__ == '__main__':
     from utils.common import init_cfg, get_cfg
     parser = argparse.ArgumentParser(description='PSMNet')
     parser.add_argument('--model', default='teacher')
+    parser.add_argument('--finetune', default=None, help="None is for Sceneflow, kitti for kitti")
     parser.add_argument('--loadmodel', default='zoo/yourmodel.tar')
     cfg = init_cfg(parser.parse_args())
         
@@ -92,7 +93,7 @@ if __name__ == '__main__':
     cfg.pad_size= (512, 256)
     cfg.server_name = 'local'
     # cfg.loadmodel = None
-    cfg.finetune = 'kitti'
+    # cfg.finetune = 'kitti'
     cfg.save_prefix = "./zoo/{}".format("student")
 
     cfg = get_cfg(cfg)

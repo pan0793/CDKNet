@@ -111,7 +111,7 @@ if __name__ == '__main__':
     import argparse
     from utils.common import init_cfg, get_cfg
     parser = argparse.ArgumentParser(description='PSMNet')
-    parser.add_argument('--finetune', default='None', help="None is for Sceneflow, kitti for kitti")
+    parser.add_argument('--finetune', default=None, help="None is for Sceneflow, kitti for kitti")
     cfg = init_cfg(parser.parse_args())
     cfg.max_epoch = 3000
    
