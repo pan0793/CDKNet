@@ -1,5 +1,5 @@
 # TSNnet
-This is the implementation of the ICCV2023 submission-No.11899: "Teacher, Student, and the Naive : A Cascade Knowledge Distillation Training".
+This is the implementation of the ICCV2023 submission-No.11899: "Teacher, Student, and the Naive: A Cascade Knowledge Distillation Training".
 
 ## Introduction
 Stereo matching has been studied for years, there are many effective methods[5, 7, 14, 47] with high computational complexity/memory occupation. On the other hand, there are only a few studies[2, 4, 38, 45] focused on stereo matching with limited computing resources. In this paper, we aim to bridge the performance gap
