@@ -14,9 +14,9 @@ Stereo matching has been studied for years, there are many effective methods[5, 
 
 | Method | D1-bg (All) | D1-fg (All) | D1-all (All) | Runtime (ms) |
 |:-:|:-:|:-:|:-:|:-:|
-| TSNnet_Teacher |2.24 % | 4.99 % | 2.70 % | 108 |
-| TSNnet_Student | 2.35 %|6.70 %|3.07 %| 24 |
-| TSNnet_Naive |2.64 %|6.47 %|3.28 %| 17 |
+| [TSNnet_Teacher](https://www.cvlibs.net/datasets/kitti/eval_scene_flow_detail.php?benchmark=stereo&result=39290e76173f581a8ca318bb1e9a12e16b8f3ca5) |2.24 % | 4.99 % | 2.70 % | 108 |
+| [TSNnet_Student](https://www.cvlibs.net/datasets/kitti/eval_scene_flow_detail.php?benchmark=stereo&result=525e1ae0f0f15a64e0bf06b8fd194f0783ec9416) | 2.35 %|6.70 %|3.07 %| 24 |
+| [TSNnet_Naive](https://www.cvlibs.net/datasets/kitti/eval_scene_flow_detail.php?benchmark=stereo&result=77e2ffe05f35444bc1d61761468c49529f5fe99f) |2.64 %|6.47 %|3.28 %| 17 |
 
 ### Examples of our results
 ![image](https://github.com/pan0793/TSNnet/tree/main/img/comparison.png)
