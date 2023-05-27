@@ -1,5 +1,5 @@
 # TSNnet
-This is the implementation of the **ICCV2023 submission-No.11899**: 
+
 
 **"Teacher, Student, and the Na ̈ıve: A Cascade Knowledge Distillation Training Scheme for Efficient Stereo Matching"**.
 
